@@ -1,12 +1,10 @@
 </div>
     </div>
-
     <script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/popper.js"></script>
     <script src="<?php echo base_url();?>assets/js/tooltip.js"></script>
 
     <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
-	
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/bootstrapValidator.min.js"></script>
@@ -15,7 +13,8 @@
     <script src="<?php echo base_url();?>assets/js/scroll-up-bar.min.js"></script>
     <script src="<?php echo base_url();?>assets/js/sa-functions.js"></script>
     <script src="<?php echo base_url();?>assets/js/chart.min.js"></script>
-    
+    <script src="<?php echo base_url(); ?>assets/vendor/js/select2.full.min.js"></script>
+
     <script>
         var ctx = document.getElementById("myChart").getContext('2d');
         var myChart = new Chart(ctx, {

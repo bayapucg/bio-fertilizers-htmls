@@ -13,10 +13,10 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Employees</h4>
+                            <h4>Hospitals</h4>
                         </div>
                         <div class="card-body">
-                           <?php echo isset($employee_list['employees'])?$employee_list['employees']:'0'?>
+                           <?php  echo isset($total_hospitals['hospitals'])?$total_hospitals['hospitals']:'0'?>
                         </div>
                     </div>
                 </div>
@@ -28,47 +28,59 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>GL Payment</h4>
+                            <h4>Beds</h4>
                         </div>
                         <div class="card-body">
-                           <?php echo isset($glpayment_list['glpayments'])?$glpayment_list['glpayments']:'0'?>
+                            <?php  echo isset($total_beds['bed'])?$total_beds['bed']:'0'?>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+			<div class="col-md-6 ">
+                <div class="card card-sm-3">
+                    <div class="card-icon bg-success">
+                        <i class="ion ion-folder"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Advance amount </h4>
+                        </div>
+                        <div class="card-body">
+                            ₹ <?php  echo isset($advance_amount['advance'])?$advance_amount['advance']:'0'?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			 <div class="col-md-6">
                 <div class="card card-sm-3">
                     <div class="card-icon bg-warning">
                         <i class="ion ion-ios-cart"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Order cum invoice</h4>
+                            <h4>Expenditures Amount </h4>
                         </div>
                         <div class="card-body">
-                           <?php echo isset($order_cum_invoice_list['invoices'])?$order_cum_invoice_list['invoices']:'0'?>
+                            ₹ <?php  echo isset($expenditure_amount['expenditure'])?$expenditure_amount['expenditure']:'0'?>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 ">
+			<div class="col-md-6">
                 <div class="card card-sm-3">
-                    <div class="card-icon bg-success">
-                        <i class="ion ion-person"></i>
+                    <div class="card-icon bg-dark">
+                        <i class="ion ion-home"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>SE/ST Expenses</h4>
+                            <h4>Discount Amount </h4>
                         </div>
                         <div class="card-body">
-                           <?php echo isset($se_st_expenses_list['expenses'])?$se_st_expenses_list['expenses']:'0'?>
+                            ₹ <?php  echo isset($discount_amount['amount'])?$discount_amount['amount']:'0'?>
                         </div>
                     </div>
                 </div>
             </div>
-			
-			
-			
 			
 			<div class="col-md-6">
                 <div class="card card-sm-3">
@@ -77,48 +89,15 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Sales Bulletin</h4>
+                            <h4>Cash On Hand  </h4>
                         </div>
                         <div class="card-body">
-                            <?php  echo isset($sales_bulletin_list['sales_bulletins'])?$sales_bulletin_list['sales_bulletins']:'0'?>
+                            ₹ <?php  echo (isset($cash_on_hand['cash'])?$cash_on_hand['cash']:'0')-(isset($cash_on_hand_expenditure['cash'])?$cash_on_hand_expenditure['cash']:'0')?>
                         </div>
                     </div>
                 </div>
             </div>
 			
-			
-			
-			<div class="col-md-6">
-                <div class="card card-sm-3">
-                    <div class="card-icon bg-dark">
-                        <i class="ion ion-home"></i>
-                    </div>
-                    <div class="card-wrap">
-                        <div class="card-header">
-                            <h4>Transfer to Other Camps</h4>
-                        </div>
-                        <div class="card-body">
-                            <?php  echo isset($transfer_to_other_camps_list['transfer'])?$transfer_to_other_camps_list['transfer']:'0'?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-			
-			<div class="col-md-6">
-                <div class="card card-sm-3">
-                    <div class="card-icon bg-info">
-                        <i class="ion-ios-browsers"></i>
-                    </div>
-                    <div class="card-wrap">
-                        <div class="card-header">
-                            <h4>Godown Stock Point</h4>
-                        </div>
-                        <div class="card-body">
-                             <?php  echo isset($godown_stock_point_list['godown_stocks'])?$godown_stock_point_list['godown_stocks']:'0'?>
-                        </div>
-                    </div>
-                </div>
-            </div>
 			
 			<div class="col-md-6">
                 <div class="card card-sm-3">
@@ -127,16 +106,126 @@
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
-                            <h4>Stock at Camp / Room </h4>
+                            <h4>Cash At Bank  </h4>
                         </div>
                         <div class="card-body">
-                           <?php  echo isset($stock_list['stocks'])?$stock_list['stocks']:'0'?>
+                            ₹ <?php  echo (isset($cash_at_bank['online'])?$cash_at_bank['online']:'0')-(isset($cash_at_bank_expenditure['online'])?$cash_at_bank_expenditure['online']:'0')?>
                         </div>
                     </div>
                 </div>
             </div>
 			
 			
+			<div class="col-md-6">
+                <div class="card card-sm-3">
+                    <div class="card-icon bg-info">
+                        <i class="ion-ios-browsers"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Total Amount</h4>
+                        </div>
+                        <div class="card-body">
+                            ₹   <?php  echo isset($total_amount['total'])?$total_amount['total']:'0'?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			 <div class="col-md-6 ">
+                <div class="card card-sm-3">
+                    <div class="card-icon bg-success">
+                        <i class="ion ion-ios-copy"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Received Amount </h4>
+                        </div>
+                        <div class="card-body">
+                            ₹  <?php  echo isset($received_amount['paid'])?$received_amount['paid']:'0'?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card card-sm-3">
+                    <div class="card-icon bg-secondary">
+                        <i class="ion ion-ios-flask"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Pending Amount</h4>
+                        </div>
+                        <div class="card-body">
+                            ₹ <?php  echo ((isset($total_amount['total'])?$total_amount['total']:'0')-((isset($received_amount['paid'])?$received_amount['paid']:'0')+(isset($discount_amount['amount'])?$discount_amount['amount']:'0')))?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="col-md-6">
+                <div class="card card-sm-3">
+                    <div class="card-icon bg-secondary">
+                        <i class="ion ion-ios-bookmarks"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Cash On Hand Hyderabad District</h4>
+                        </div>
+                        <div class="card-body">
+                            ₹ <?php  echo (isset($cash_on_hand_kadapa_dist['cash'])?$cash_on_hand_kadapa_dist['cash']:'0')-(isset($cash_on_hand_expenditure_kadapa_dist['cash'])?$cash_on_hand_expenditure_kadapa_dist['cash']:'0')?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="col-md-6">
+                <div class="card card-sm-3">
+                    <div class="card-icon bg-secondary">
+                        <i class="ion ion-ios-bookmarks"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Cash On Hand Nalgonda District</h4>
+                        </div>
+                        <div class="card-body">
+                            ₹ <?php  echo (isset($cash_on_hand_Ananthapur_dist['cash'])?$cash_on_hand_Ananthapur_dist['cash']:'0')-(isset($cash_on_hand_expenditure_Ananthapur_dist['cash'])?$cash_on_hand_expenditure_Ananthapur_dist['cash']:'0')?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="col-md-6">
+                <div class="card card-sm-3">
+                    <div class="card-icon bg-primary">
+                        <i class="ion ion-ios-book"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Cash At Bank Hyderabad District</h4>
+                        </div>
+                        <div class="card-body">
+                            ₹ <?php  echo (isset($cash_at_bank_kadapa_dist['online'])?$cash_at_bank_kadapa_dist['online']:'0')-(isset($cash_at_bank_expenditure_kadapa_dist['online'])?$cash_at_bank_expenditure_kadapa_dist['online']:'0')?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div class="col-md-6">
+                <div class="card card-sm-3">
+                    <div class="card-icon bg-primary">
+                        <i class="ion ion-ios-book"></i>
+                    </div>
+                    <div class="card-wrap">
+                        <div class="card-header">
+                            <h4>Cash At Bank Nalgonda District</h4>
+                        </div>
+                        <div class="card-body">
+                            ₹ <?php  echo (isset($cash_at_bank_Ananthapur_dist['online'])?$cash_at_bank_Ananthapur_dist['online']:'0')-(isset($cash_at_bank_expenditure_Ananthapur_dist['online'])?$cash_at_bank_expenditure_Ananthapur_dist['online']:'0')?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			
+           
         </div>
         
     </section>

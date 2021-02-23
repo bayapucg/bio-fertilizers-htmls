@@ -14,7 +14,7 @@ class Forgotpassword extends CI_Controller {
 		$this->load->helper('directory');
 		$this->load->helper('cookie');
 		$this->load->helper('security');
-		$this->load->model('Login_model');
+		$this->load->model('Admin_model');
 	}
 	public function index()
 	{	
@@ -23,28 +23,29 @@ class Forgotpassword extends CI_Controller {
 			
 			$this->load->view('admin/forgot-password');
 		}else{
-			redirect('login');
+			redirect('admin');
 		}
 	}
 	public function forgotpost(){
 		$post=$this->input->post();
-		$check_email=$this->Login_model->check_email_exits($post['email']);
+		$check_email=$this->Admin_model->check_email_exits($post['email']);
 			if(count($check_email)>0){
+				
 				$this->load->library('email');
 				$this->email->set_newline("\r\n");
 				$this->email->set_mailtype("html");
 				$this->email->from($post['email']);
-				$this->email->to('admin@biofertilizers.com');
+				$this->email->to('admin@bmwbilling.com');
 				$this->email->subject('forgot - password');
 				$body = "Your  login Password is ".$check_email['org_password'];
 				$this->email->message($body);
 				$this->email->send();
 				$this->session->set_flashdata('success','Check Your Email to reset your password!');
-				redirect('login');
+				redirect('admin');
 
 			}else{
 				$this->session->set_flashdata('error','The email you entered is not a registered email. Please try again. ');
-				redirect('login');	
+				redirect('admin');	
 			}
 		
 	}
